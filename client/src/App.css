@@ -1,0 +1,79 @@
+/* Base Layout */
+.app-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.8s ease;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Default Theme */
+.default { background: #2c3e50; }
+
+/* SUNNY / CLEAR */
+.clear { background: linear-gradient(to top, #f39c12, #f1c40f); }
+
+/* CLOUDS */
+.clouds { background: #7f8c8d; }
+.clouds .cloud-layer {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/clouds.png');
+    opacity: 0.4;
+    animation: moveClouds 60s linear infinite;
+}
+
+/* RAIN - Blurry Mirror Effect */
+.rain { 
+    background: url('https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?q=80&w=2000');
+    background-size: cover;
+}
+.rain .content {
+    backdrop-filter: blur(15px) brightness(0.6); /* The Mirror Blur */
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.rain .rain-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/rain.png');
+    opacity: 0.5;
+    animation: fallingRain 0.3s linear infinite;
+}
+
+/* The Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3rem;
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+    min-width: 300px;
+}
+
+.main-temp { font-size: 5rem; font-weight: 800; margin: 10px 0; }
+
+/* Animations */
+@keyframes moveClouds {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes fallingRain {
+    from { background-position: 0 0; }
+    to { background-position: 0 500px; }
+}
+
+.search-section input {
+    padding: 12px 20px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
